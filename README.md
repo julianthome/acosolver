@@ -15,7 +15,7 @@ Table of Contents:
 # Overview
 
 ACO-Solver is a tool for search-driven constraint solving for the purpose of
-vulnerability analysis. The figure below illustrates how ACO-Solver works.
+vulnerability analysis. The figure below illustrates how ACO-Solver works:
 
 
 ![](https://www.dropbox.com/s/t5cbpndjorpweow/archfigure.png?dl=1)
@@ -25,7 +25,7 @@ attack specification used to characterize a security threat
 (*e.g.* `.*' or 1 = 1 -- .*` in the case of SQL injection). The solving procedure is
 a two stage process:
 
-1) In the first stage, ACO-Solver invokes an external solver in order to solve all the given constraints that are supported by the solver. External solvers can be integrated through the plugin structure of ACO-Solver. For evaluation purposes, we developed plugins for Z3-str2, and CVC4.
+1) In the first stage, ACO-Solver invokes an external solver in order to solve all the given constraints that are supported by the solver. External solvers can be integrated through the plugin structure of ACO-Solver. For evaluation purposes, we have developed plugins for Z3-str2 and CVC4.
 
 2) The remaining constraints can then be solved in the second phase by means of hybrid constraint solving that combines an automata based solver (we use Sushi) with a search-driven solving procedure based on the [Ant Colony Optimization meta-heuristic](http://dl.acm.org/citation.cfm?id=348603).
 
@@ -33,11 +33,11 @@ a two stage process:
 
 # Evaluation
 
-We conducted our evaluation on a machine equipped with an Intel Core i7 2.4 GHz processor, 8 GB memory, running Apple Mac OS X 10.11 and Sushi v2.0. As external solver, we experimented with Z3-str2 as well as CVC4.
+We have conducted our evaluation on a machine equipped with an Intel Core i7 2.4 GHz processor, 8 GB memory, running Apple Mac OS X 10.11 and Sushi v2.0. As external solver, we have experimented with Z3-str2 as well as CVC4.
 
 ## Benchmark
 
-We extracted attack conditions from the following Java Web applications and services:
+We have extracted attack conditions from the following Java Web applications and services:
 
 * [WebGoat 5.2](https://www.owasp.org/index.php/Category:OWASP_WebGoat_Project):
   a deliberately in-secured Web application/service for the purpose of teaching security vulnerabilities
@@ -48,7 +48,7 @@ We extracted attack conditions from the following Java Web applications and serv
 * [rest-auth-proxy](https://github.com/kamranzafar/rest-auth-proxy): an LDAP micro-service
 * [TPC-(APP|C|W)](http://www.tpc.org/tpc_app/): standard security benchmark accepted as representative of real environments by the Transactions processing Performance Council
 
-The table below details the vulnerability information for every application of our benchmark. It shows the number of extracted vulnerable and non-vulnerable paths. We verified whether a given path is vulnerable or not through manual inspection and consultation of [NVD](https://nvd.nist.gov/) and encountered the following vulnerability types in our benchmark:
+The table below details the vulnerability information for every application of our benchmark. It shows the number of extracted vulnerable and non-vulnerable paths. We have verified whether a given path is vulnerable or not through manual inspection and consultation of [NVD](https://nvd.nist.gov/) and have encountered the following vulnerability types in our benchmark:
 
 * XML Injection (XML)
 * XPath Injection (XPath)
@@ -225,15 +225,15 @@ The table below depicts the overall results of our evaluation. The columns are e
 
  * vp: number vulnerable paths
  * nvp: number of non-vulnerable paths
- * t(s): the time taken in second to solve all attack conditions per application
- * &#x2716;: number of failing cases, *i.e.* how many attack conditions could not be solved due to crashes or the presence unsupported operations
+ * t(s): the time taken in seconds to solve all the attack conditions per application
+ * &#x2716;: number of failing cases, *i.e.* how many attack conditions could not be solved due to crashes or the presence of unsupported operations
  * &#x2714;: number of cases that could be solved by the constraint solver
- * &Delta;: number of cases, out of the failing cases of Z3-str2 or CVC4, that ACO-Solver helped solve
+ * &Delta;: number of cases, out of the failing cases of Z3-str2 or CVC4, that ACO-Solver helped to solve
  * TP: true positives (number of vulnerable cases correctly identified)
  * TN: true negatives (number of non-vulnerable cases correctly identified)
  * FP: false positives (number of non-vulnerable cases reported as vulnerable)
  * FN: false negatives (number of vulnerable cases not detected)
- * recall: the percentage of vulnerable cases detected among the total vulnerable cases computed with TP/(TP+FN)*100
+ * recall: the percentage of vulnerable cases detected from among the total vulnerable cases computed with TP/(TP+FN)*100
 
 <table class="table-condensed">
 <thead>
@@ -671,18 +671,18 @@ The table below depicts the overall results of our evaluation. The columns are e
 </tbody>
 </table>
 
-To assess the role of Sushi in the second stage of our solving procedure, we ran both Z3-str2 and CVC4 together with a modified version of ACO-Solver where Sushi was switched-off, referred to as modACO-Solver in the following.
+To assess the role of Sushi in the second stage of our solving procedure, we ran both Z3-str2 and CVC4 together with a modified version of ACO-Solver where Sushi was switched-off, referred to as modACO-Solver.
 
 When executed with 30s time-out, Z3-str2 + modACO-Solver timed-out on 85 cases with a recall of 4.7% and an overall execution time of 44 min. CVC4 + modACO-Solver timed out on 31 cases, with a recall of 87.5% and an overall execution time of 15.5 min and solved only one more case as compared to running CVC4 standalone.
 
 For both solvers, increasing the timeout per test case to 300s did not result in
 the detection of more vulnerable cases as compared to running them with a timeout of 30s. The
-following table shows the results in detail.
+following table shows the results in detail:
 
 
 * &Oslash;(timeout: 30s): Execution time of our test subjects with a timeout of 30s per attack condition
 * &Oslash;(timeout: 300s) Execution time of our test subjects with a timeout of 300s per attack condition
-* recall: the percentage of vulnerable cases detected among the total vulnerable cases computed with tp/(tp + fn)*100
+* recall: the percentage of vulnerable cases detected from among the total vulnerable cases computed with tp/(tp + fn)*100
 
 <table class="table-condensed">
 <thead>
@@ -794,11 +794,11 @@ The ACO-Solver tool has the following requirements:
 
 * Mac OS X / Linux
 * Java 1.8
-* Sushi 2.0: a Java archive can be requested from the main authors from [here](http://people.hofstra.edu/Xiang_Fu/XiangFu/projects/SAFELI/SUSHI.php)
+* Sushi 2.0: a Java archive may be requested from the main authors from [here](http://people.hofstra.edu/Xiang_Fu/XiangFu/projects/SAFELI/SUSHI.php)
 * Z3-str2: we used commit [2e52601](https://github.com/z3str/Z3-str/commit/2e52601). Installation instructions are available on the [github page](https://github.com/z3str/Z3-str).
 * CVC4: for our experiments, we used [version 4.1](http://cvc4.cs.nyu.edu/builds/misc/cvc4-1.4.1-prerelease-2016-01-03.tar.gz). Installation instructions are available on the [CVC4 Wiki](http://cvc4.cs.nyu.edu/wiki/User_Manual).
 
-The ACO-Solver tool can be downloaded from
+The ACO-Solver tool may be downloaded from
 [here](https://www.dropbox.com/s/jjf3b6jkhuv2ysk/aco.zip?dl=1). The zip archive
 contains the file ``acosolver.jar`` (*i.e.*, the main tool) and the plugin files
 ``cvc4-plugin.jar`` and ``z3-plugin.jar``, respectively. These plugins are important for
@@ -829,7 +829,7 @@ solve ../acond/BackDoors0.cvc4 ...
 solve ...
 ```
 
-For solving single attack conditions, the following two commands illustrate how CVC4 and Z3-str2 can be invoked directly:
+With regard to solving single attack conditions, the following two commands illustrate how CVC4 and Z3-str2 can be invoked directly:
 
 ```bash
 cvc4 --lang smt XPATHInjection0.cvc4
