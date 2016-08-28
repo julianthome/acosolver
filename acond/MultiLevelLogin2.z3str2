@@ -1,0 +1,5 @@
+
+(assert (= true (= true false ) ))
+
+(check-sat)
+(get-model)

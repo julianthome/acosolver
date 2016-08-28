@@ -1,0 +1,35 @@
+# From 60(var105) to 96(var80)
+var string var80;
+var string var82;
+var string var83;
+var string var85;
+var string var86;
+var string var87;
+var string var89;
+var string var90;
+var string var91;
+var string var93;
+var string var94;
+var string var95;
+var string var97;
+var string var99;
+var int var101;
+var string var104;
+var string var103;
+var string var105;
+
+&(var105,sqlistr);
+==(var80,var82);
+==(var82,concat(var83,"'"));
+==(var83,concat(var85,var86));
+==(var85,concat(var87,"' AND c_w_id = '"));
+==(var87,concat(var89,var90));
+==(var89,concat(var91,"' AND c_d_id = '"));
+==(var91,concat(var93,var94));
+==(var93,concat(var95,"WHERE c_id = '"));
+==(var95,concat(var97,"FROM tpcc_customer"));
+==(var97,concat(var99,"SELECT c_balance, c_first, c_middle, c_last"));
+==(var101,0);
+==(var104,var90);
+==(var103,var86);
+==(var105,var94);

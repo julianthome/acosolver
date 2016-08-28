@@ -1,0 +1,32 @@
+# From 36(var461) to 51(var435)
+var int var457;
+var int var456;
+var string var461;
+var string var435;
+var string var437;
+var string var438;
+var string var440;
+var string var442;
+var string var443;
+var string var444;
+var string var446;
+var int var447;
+var string var448;
+var string var450;
+var string var452;
+var string var454;
+
+&(var461,sqlistr);
+<=(var457,0);
+==(var456,1);
+==(var461,var443);
+==(var435,var437);
+==(var437,concat(var438,"\) WHERE rownum = 1"));
+==(var438,concat(var440,"' ORDER BY no_o_id ASC"));
+==(var440,concat(var442,var443));
+==(var442,concat(var444,"AND no_w_id = '"));
+==(var444,concat(var446,tostr(var447)));
+==(var446,concat(var448,"WHERE no_d_id ="));
+==(var448,concat(var450,"FROM tpcc_new_order"));
+==(var450,concat(var452,"SELECT no_o_id"));
+==(var452,concat(var454,"SELECT \* FROM \("));

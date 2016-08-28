@@ -1,0 +1,33 @@
+# From 128 to 140
+var string var1;
+var string var2;
+var string var3;
+var string var5;
+var string var7;
+var string var8;
+var string var9;
+var string var22;
+var string var10;
+var bool var12;
+var string var15;
+var string var16;
+var string var17;
+var string var18;
+var string var20;
+var bool var21;
+
+&(var22, xss);
+==(var1,tostr(var2));
+==(var2,concat(var3,"in the client\."));
+==(var3,concat(var5,"'\. Please close this browser window and click continue"));
+==(var5,concat(var7,var8));
+==(var8,var9);
+==(var22,var22);
+==(var7,concat(var10,"You have successfully authorized for consumer key '"));
+!=(var12,true);
+==(var12,==("none",var15));
+or(==(var15,var16),==(var15,var17));
+==(var18,"");
+==(var18,var20);
+!=(var21,true);
+==(var21,==("none",var16));

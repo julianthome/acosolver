@@ -1,0 +1,37 @@
+# From 52(var43) to 157(var21)
+var string var36;
+var string var37;
+var string var39;
+var string var40;
+var string var42;
+var string var43;
+var string var19;
+var string var22;
+var string var23;
+var string var24;
+var string var21;
+var int var25;
+var string var27;
+var bool var28;
+var string var30;
+var string var33;
+var string var34;
+
+&(var43,xmli);
+or(==(var19,""),==(var19,var36));
+==(var37,"");
+==("",var39);
+==(var40,"");
+or(==(var27,""),==(var27,var42));
+==(var43,"");
+==("",var19);
+==("",var24);
+or(==("",var22),==("",var23));
+or(==(var21,var19),==(var21,""));
+<=(var25,0);
+==(var25,len(var27));
+!=(var28,true);
+==(var28,==(var27,"subscribe"));
+==(var30,"");
+==("",var33);
+==(var34,"");

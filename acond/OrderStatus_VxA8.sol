@@ -1,0 +1,35 @@
+# From 59(var507) to 46(var483)
+var string var497;
+var string var498;
+var string var500;
+var string var502;
+var int var504;
+var string var507;
+var string var506;
+var string var508;
+var string var483;
+var string var485;
+var string var486;
+var string var488;
+var string var489;
+var string var490;
+var string var492;
+var string var493;
+var string var494;
+var string var496;
+
+&(var507,sqlistr);
+==(var494,concat(var496,var497));
+==(var496,concat(var498,"WHERE c_last = '"));
+==(var498,concat(var500,"FROM tpcc_customer"));
+==(var500,concat(var502,"SELECT count\(c_id\) AS namecnt"));
+!=(var504,0);
+==(var507,var493);
+==(var506,var489);
+==(var508,var497);
+==(var483,var485);
+==(var485,concat(var486,"'"));
+==(var486,concat(var488,var489));
+==(var488,concat(var490,"' AND c_w_id = '"));
+==(var490,concat(var492,var493));
+==(var492,concat(var494,"' AND c_d_id = '"));

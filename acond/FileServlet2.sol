@@ -1,0 +1,30 @@
+# From 79(var73) to 126
+var string var48;
+var string var49;
+var string var50;
+var string var51;
+var string var52;
+var string var53;
+var int var54;
+var string var74;
+var string var59;
+var string var60;
+var string var66;
+var string var67;
+var bool var70;
+var string var73;
+var string var47;
+var string var68;
+
+&(var73, xss);
+==(var48,var49);
+==(var50,var53);
+or(==(var50,var51),==(var50,var52));
+==(var54,0);
+!=(var51,"");
+or(==(var74,var60),==(var74,var59));
+!=(var66,var67);
+==(var70,true);
+==(var70,==("1",var73));
+==(var50,var47);
+==(var68,var59);

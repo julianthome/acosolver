@@ -1,0 +1,8 @@
+(set-logic QF_S)
+(set-option :produce-models true)
+(set-option :strings-exp true)
+
+(assert (= true (= true false ) ))
+
+(check-sat)
+(get-model)
