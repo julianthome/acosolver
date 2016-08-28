@@ -2,27 +2,34 @@
 
 Hybrid String Constraint Solving for Vulnerability Analysis
 
-[Overview](#overview)
 
-[Evaluation](#evaluation)
+Table of Contents:
+------------------
 
-[Tool](#tool)
+[Overview](#overview): General description of our approach and the tool architecture
+
+[Evaluation](#evaluation): Evaluation details
+
+[Tool](#tool): Requirements and installation instructions
 
 # Overview
 
 ACO-Solver is a tool for search-driven constraint solving for the purpose of
 vulnerability analysis. The figure below illustrates how ACO-Solver works.
 
+
+![](https://www.dropbox.com/s/t5cbpndjorpweow/archfigure.png?dl=1)
+
 The solver takes as input an attack condition, *i.e*. a path condition conjoined with an
 attack specification used to characterize a security threat
 (*e.g.* `.*' or 1 = 1 -- .*` in the case of SQL injection). The solving procedure is
 a two stage process:
 
-1) In the first stage, ACO-Solver invokes an external solver in order to solve all the given constraints that are supported by the solver. Solvers can be integrated through the plugin structure of ACO-Solver. For evaluation purposes, we developed plugins for Z3-str2, and CVC4.
+1) In the first stage, ACO-Solver invokes an external solver in order to solve all the given constraints that are supported by the solver. External solvers can be integrated through the plugin structure of ACO-Solver. For evaluation purposes, we developed plugins for Z3-str2, and CVC4.
 
-2) The remaining constraints can then be solved in the second phase by means of hybrid constraint solving that combines an automata based solver with a search-driven solving procedure based on the [Ant Colony Optimization meta-heuristic](http://dl.acm.org/citation.cfm?id=348603).
+2) The remaining constraints can then be solved in the second phase by means of hybrid constraint solving that combines an automata based solver (we use Sushi) with a search-driven solving procedure based on the [Ant Colony Optimization meta-heuristic](http://dl.acm.org/citation.cfm?id=348603).
 
-![](https://www.dropbox.com/s/t5cbpndjorpweow/archfigure.png?dl=1)
+
 
 # Evaluation
 
@@ -41,7 +48,7 @@ We extracted attack conditions from the following Java Web applications and serv
 * [rest-auth-proxy](https://github.com/kamranzafar/rest-auth-proxy): an LDAP micro-service
 * [TPC-(APP|C|W)](http://www.tpc.org/tpc_app/): standard security benchmark accepted as representative of real environments by the Transactions processing Performance Council
 
-The table below details the vulnerability information for every application of our benchmark. It shows the number of extracted vulnerable and non-vulnerable paths. We verified whether a given path is vulnerable or not through manual inspection and consultation of [NVD](https://nvd.nist.gov/). We encountered the following vulnerability types in our benchmark:
+The table below details the vulnerability information for every application of our benchmark. It shows the number of extracted vulnerable and non-vulnerable paths. We verified whether a given path is vulnerable or not through manual inspection and consultation of [NVD](https://nvd.nist.gov/) and encountered the following vulnerability types in our benchmark:
 
 * XML Injection (XML)
 * XPath Injection (XPath)
@@ -788,7 +795,7 @@ The ACO-Solver tool has the following requirements:
 * Mac OS X / Linux
 * Java 1.8
 * Sushi 2.0: a Java archive can be requested from the main authors from [here](http://people.hofstra.edu/Xiang_Fu/XiangFu/projects/SAFELI/SUSHI.php)
-* Z3-str2: we used revision [2e52601](https://github.com/z3str/Z3-str/commit/2e52601). Installation instructions are available on the [github page](https://github.com/z3str/Z3-str).
+* Z3-str2: we used commit [2e52601](https://github.com/z3str/Z3-str/commit/2e52601). Installation instructions are available on the [github page](https://github.com/z3str/Z3-str).
 * CVC4: for our experiments, we used [version 4.1](http://cvc4.cs.nyu.edu/builds/misc/cvc4-1.4.1-prerelease-2016-01-03.tar.gz). Installation instructions are available on the [CVC4 Wiki](http://cvc4.cs.nyu.edu/wiki/User_Manual).
 
 The ACO-Solver tool can be downloaded from
