@@ -11,10 +11,11 @@ Hybrid String Constraint Solving for Vulnerability Analysis
 # Overview
 
 ACO-Solver is a tool for search-driven constraint solving for the purpose of
-vulnerability analysis. The following figure illustrates how ACO-Solver works.
-Given as input an attack condition, *i.e*. a path condition conjoined with an
-attack specification where the latter is used to characterize a security threat
-(*e.g.* `.*' or 1 = 1 --'` in the case of SQL injection). The solving procedure is
+vulnerability analysis. The figure below illustrates how ACO-Solver works.
+
+The solver takes as input an attack condition, *i.e*. a path condition conjoined with an
+attack specification used to characterize a security threat
+(*e.g.* `.*' or 1 = 1 -- .*` in the case of SQL injection). The solving procedure is
 a two stage process:
 
 1) In the first stage, ACO-Solver invokes an external solver in order to solve all the given constraints that are supported by the solver. Solvers can be integrated through the plugin structure of ACO-Solver. For evaluation purposes, we developed plugins for Z3-str2, and CVC4.
@@ -40,9 +41,7 @@ We extracted attack conditions from the following Java Web applications and serv
 * [rest-auth-proxy](https://github.com/kamranzafar/rest-auth-proxy): an LDAP micro-service
 * [TPC-(APP|C|W)](http://www.tpc.org/tpc_app/): standard security benchmark accepted as representative of real environments by the Transactions processing Performance Council
 
-The table below details the vulnerability information for every test
-subject. It shows the number of extracted vulnerable and non-vulnerable paths
-per test subjects. We verified whether a given path it is vulnerable or not through manual inspection and consultation of [NVD](https://nvd.nist.gov/). We encountered the following vulnerability types in our benchmark:
+The table below details the vulnerability information for every application of our benchmark. It shows the number of extracted vulnerable and non-vulnerable paths. We verified whether a given path is vulnerable or not through manual inspection and consultation of [NVD](https://nvd.nist.gov/). We encountered the following vulnerability types in our benchmark:
 
 * XML Injection (XML)
 * XPath Injection (XPath)
@@ -215,7 +214,7 @@ The file `acond/README.txt` shows to which application a given attack condition 
 
 ## Results
 
-The following table depicts the overall results of our evaluation. The columns are explained in the following:
+The table below depicts the overall results of our evaluation. The columns are explained in the following:
 
  * vp: number vulnerable paths
  * nvp: number of non-vulnerable paths
@@ -227,7 +226,7 @@ The following table depicts the overall results of our evaluation. The columns a
  * TN: true negatives (number of non-vulnerable cases correctly identified)
  * FP: false positives (number of non-vulnerable cases reported as vulnerable)
  * FN: false negatives (number of vulnerable cases not detected)
- * recall: the percentage of vulnerable cases detected among the total vulnerable cases computed with tp/(tp + fn)*100
+ * recall: the percentage of vulnerable cases detected among the total vulnerable cases computed with TP/(TP+FN)*100
 
 <table class="table-condensed">
 <thead>
@@ -669,7 +668,9 @@ To assess the role of Sushi in the second stage of our solving procedure, we ran
 
 When executed with 30s time-out, Z3-str2 + modACO-Solver timed-out on 85 cases with a recall of 4.7% and an overall execution time of 44 min. CVC4 + modACO-Solver timed out on 31 cases, with a recall of 87.5% and an overall execution time of 15.5 min and solved only one more case as compared to running CVC4 standalone.
 
-For both solvers, increasing the timeout per test case to 300s did not result in the detection of more vulnerable cases. The following table shows the results for in detail.
+For both solvers, increasing the timeout per test case to 300s did not result in
+the detection of more vulnerable cases as compared to running them with a timeout of 30s. The
+following table shows the results in detail.
 
 
 * &Oslash;(timeout: 30s): Execution time of our test subjects with a timeout of 30s per attack condition
@@ -695,84 +696,84 @@ For both solvers, increasing the timeout per test case to 300s did not result in
 </thead>
 <tr>
 <td>WebGoat</td>
-<td align="right">330.10</td>
-<td align="right">3300.10</td>
-<td align="right">0</td>
-<td align="right">40.70</td>
-<td align="right">309.94</td>
-<td align="right">90.91</td>
+<td align="right">330</td>
+<td align="right">3300</td>
+<td align="right">0.0</td>
+<td align="right">41</td>
+<td align="right">310</td>
+<td align="right">91.0</td>
 </tr>
 <tbody><tr><td>Roller</td>
 <td align="right">390</td>
 <td align="right">3900</td>
-<td align="right">0</td>
-<td align="right">302.12</td>
-<td align="right">3002.05</td>
-<td align="right">100</td>
+<td align="right">0.0</td>
+<td align="right">302</td>
+<td align="right">3002</td>
+<td align="right">100.0</td>
 </tr>
 <tr>
 <td>Pebble</td>
-<td align="right">360.01</td>
-<td align="right">3600.01</td>
-<td align="right">0</td>
-<td align="right">361.023</td>
-<td align="right">4773.19</td>
-<td align="right">0</td>
+<td align="right">360</td>
+<td align="right">3600</td>
+<td align="right">0.0</td>
+<td align="right">361</td>
+<td align="right">4773</td>
+<td align="right">0.0</td>
 </tr>
 <tr><td>Regain</td>
-<td align="right">87.95</td>
-<td align="right">91.050</td>
-<td align="right">100</td>
-<td align="right">1.51</td>
-<td align="right">324.32</td>
-<td align="right">100</td>
+<td align="right">88</td>
+<td align="right">91</td>
+<td align="right">100.0</td>
+<td align="right">2</td>
+<td align="right">324</td>
+<td align="right">100.0</td>
 </tr>
 <tr><td>pubsubhubbub-java</td>
-<td align="right">133.33</td>
-<td align="right">1213.33</td>
-<td align="right">0</td>
-<td align="right">90.23</td>
-<td align="right">1571.90</td>
-<td align="right">0</td>
+<td align="right">133</td>
+<td align="right">1213</td>
+<td align="right">0.0</td>
+<td align="right">90</td>
+<td align="right">1572</td>
+<td align="right">0.0</td>
 </tr>
 <tr><td>rest-auth-proxy</td>
 <td align="right">30</td>
 <td align="right">300</td>
-<td align="right">0</td>
-<td align="right">1.66</td>
-<td align="right">1.66</td>
-<td align="right">100</td>
+<td align="right">0.0</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">100.0</td>
 </tr>
 <tr><td>TPC-APP</td>
-<td align="right">270.22</td>
-<td align="right">2700.22</td>
-<td align="right">0</td>
-<td align="right">91.81</td>
-<td align="right">901.85</td>
-<td align="right">100</td>
+<td align="right">270</td>
+<td align="right">2700</td>
+<td align="right">0.0</td>
+<td align="right">92</td>
+<td align="right">902</td>
+<td align="right">100.0</td>
 </tr>
 <tr><td>TPC-C</td>
-<td align="right">930.02</td>
-<td align="right">9300.02</td>
-<td align="right">0</td>
-<td align="right">37.51</td>
-<td align="right">307.51</td>
-<td align="right">100</td>
+<td align="right">930</td>
+<td align="right">9300</td>
+<td align="right">0.0</td>
+<td align="right">38</td>
+<td align="right">308</td>
+<td align="right">100.0</td>
 </tr>
 <tr><td>TPC-W</td>
-<td align="right">120.02</td>
-<td align="right">1200.02</td>
-<td align="right">0</td>
-<td align="right">1.21</td>
-<td align="right">1.21</td>
-<td align="right">100</td>
+<td align="right">120</td>
+<td align="right">1200</td>
+<td align="right">0.0</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">100.0</td>
 </tr>
 <tr style="font-weight:bold"><td>Total</td>
-<td align="right">2651.66</td>
-<td align="right">25604.76</td>
+<td align="right">2652</td>
+<td align="right">25605</td>
 <td align="right">4.7</td>
-<td align="right">927.76</td>
-<td align="right">11193.63</td>
+<td align="right">928</td>
+<td align="right">11194</td>
 <td align="right">87.5</td>
 </tr>
 </tbody></table>
@@ -797,10 +798,10 @@ contains the file ``acosolver.jar`` (*i.e.*, the main tool) and the plugin files
 ACO-Solver to communicate with the external solvers in the first phase of the
 solving procedure.
 
-For running ACO-Solver, one can use the helper script `solve.sh` script that is
+For running ACO-Solver, one can use the helper script script `solve.sh` that is
 available in the `scripts/` directory of this repository with ``aco`` as
 parameter.  Before running the script, please make sure that the variable
-definitions at the top of the file are pointing to the right locations. The variables are explained by means of comments inside the script.
+definitions at the top of `solve.sh` are pointing to the right locations. The variable explanations can be found inside the script.
 
 ```bash
 ./solve.sh aco
@@ -811,8 +812,8 @@ solve ...
 
 # Constraint Solvers
 
-For running CVC4, and Z3-str2 on our benchmark, we prepared the `solve.sh`
-script that is available in the `scripts/` directory of this repository.  Before running the script, please adjust the paths of CVC4
+For running CVC4, and Z3-str2 on our benchmark, one can use the `solve.sh`
+script that is available in the `scripts/` directory of this repository.  Before running the script, please make sure that the paths of CVC4 and Z3-str2 are correctly defined. To decide which solver should be invoked, one can pass to the script either ``cvc4`` or ``z3str2``.
 
 ```bash
 ./solve.sh cvc4
@@ -821,8 +822,7 @@ solve ../acond/BackDoors0.cvc4 ...
 solve ...
 ```
 
-One can invoke the script with ``cvc4`` or ``z3str2`` as parameters. One can
-also pass the attack condition directly to the solver with:
+For solving single attack conditions, the following two commands illustrate how CVC4 and Z3-str2 can be invoked directly:
 
 ```bash
 cvc4 --lang smt XPATHInjection0.cvc4
