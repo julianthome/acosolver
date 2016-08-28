@@ -85,7 +85,17 @@ function solveZ3 {
 }
 
 function solveACO {
-	local acoinv="java -cp ${CP} org.snt.helix.core.Helix -pdir $PLUGINDIR -solver ${ACOEXT} -pconf cvc4bin=${CVC4BIN} -setprep ${SUSHI_ENABLED}"
+
+	local pconf=""
+
+	if [ "${ACOEXT}" == "z3"  ]; then
+		pconf="z3bin=${Z3BIN}"
+	elif  [ "${ACOEXT}" == "cvc4"  ]; then
+		pconf="cvc4bin=${CVC4BIN}"
+	fi
+
+	local acoinv="java -cp ${CP} org.snt.helix.core.Helix -pdir $PLUGINDIR -solver ${ACOEXT} -pconf ${pconf} -setprep ${SUSHI_ENABLED}"
+
 	local files=$(find ${ACONDDIR} -name "*.sol" -not -name "${FINALRES}.sol")
 	echo "" > "${FINALRES}.sol"
 	for fil in $files; do
