@@ -223,7 +223,7 @@ The file `acond/README.txt` shows to which application a given attack condition 
 
 The table below depicts the overall results of our evaluation. The columns are explained in the following:
 
- * vp: number vulnerable paths
+ * vp: number of vulnerable paths
  * nvp: number of non-vulnerable paths
  * t(s): the time taken in seconds to solve all the attack conditions per application
  * &#x2716;: number of failing cases, *i.e.* how many attack conditions could not be solved due to crashes or the presence of unsupported operations
@@ -794,11 +794,11 @@ The ACO-Solver tool has the following requirements:
 
 * Mac OS X / Linux
 * Java 1.8
-* Sushi 2.0: a Java archive may be requested from the main authors from [here](http://people.hofstra.edu/Xiang_Fu/XiangFu/projects/SAFELI/SUSHI.php)
+* Sushi 2.0: a Java archive may be requested from the main authors [here](http://people.hofstra.edu/Xiang_Fu/XiangFu/projects/SAFELI/SUSHI.php)
 * Z3-str2: we used commit [2e52601](https://github.com/z3str/Z3-str/commit/2e52601). Installation instructions are available on the [github page](https://github.com/z3str/Z3-str).
 * CVC4: for our experiments, we used [version 4.1](http://cvc4.cs.nyu.edu/builds/misc/cvc4-1.4.1-prerelease-2016-01-03.tar.gz). Installation instructions are available on the [CVC4 Wiki](http://cvc4.cs.nyu.edu/wiki/User_Manual).
 
-The ACO-Solver tool may be downloaded from
+The ACO-Solver tool may be downloaded
 [here](https://www.dropbox.com/s/jjf3b6jkhuv2ysk/aco.zip?dl=1). The zip archive
 contains the file ``acosolver.jar`` (*i.e.*, the main tool) and the plugin files
 ``cvc4-plugin.jar`` and ``z3-plugin.jar``, respectively. These plugins are important for
