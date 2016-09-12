@@ -33,7 +33,7 @@ a two stage process:
 
 # Evaluation
 
-We have conducted our evaluation on a machine equipped with an Intel Core i7 2.4 GHz processor, 8 GB memory, running Apple Mac OS X 10.11 and Sushi v2.0. As external solver, we have experimented with Z3-str2 as well as CVC4.
+We have conducted our evaluation on a machine equipped with an Intel Core i7 2.4 GHz processor, 8 GB memory, running Apple Mac OS X 10.11 and [Sushi (v2.0)](http://people.hofstra.edu/Xiang_Fu/XiangFu/projects/SAFELI/SUSHI.php). As external solver, we have experimented with [Z3-str2 (commit 2e52601)](https://github.com/z3str/Z3-str/commit/2e52601) as well as [CVC4 (v1.4.1)](http://cvc4.cs.nyu.edu/builds/misc/cvc4-1.4.1-prerelease-2016-01-03.tar.gz).
 
 ## Benchmark
 
@@ -796,7 +796,7 @@ The ACO-Solver tool has the following requirements:
 * Java 1.8
 * Sushi 2.0: a Java archive may be requested from the main authors [here](http://people.hofstra.edu/Xiang_Fu/XiangFu/projects/SAFELI/SUSHI.php)
 * Z3-str2: we used commit [2e52601](https://github.com/z3str/Z3-str/commit/2e52601). Installation instructions are available on the [github page](https://github.com/z3str/Z3-str).
-* CVC4: for our experiments, we used [version 4.1](http://cvc4.cs.nyu.edu/builds/misc/cvc4-1.4.1-prerelease-2016-01-03.tar.gz). Installation instructions are available on the [CVC4 Wiki](http://cvc4.cs.nyu.edu/wiki/User_Manual).
+* CVC4: for our experiments, we used [version 1.4.1](http://cvc4.cs.nyu.edu/builds/misc/cvc4-1.4.1-prerelease-2016-01-03.tar.gz). Installation instructions are available on the [CVC4 Wiki](http://cvc4.cs.nyu.edu/wiki/User_Manual).
 
 The ACO-Solver tool may be downloaded
 [here](https://www.dropbox.com/s/jjf3b6jkhuv2ysk/aco.zip?dl=1). The zip archive
