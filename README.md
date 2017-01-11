@@ -4835,10 +4835,6 @@ following table shows the results in detail:
 </tr>
 </tbody></table>
 
-
-## Results details
-<frame src="http://www.dropbox.com/s/xysa4pp6f3luzt5/acoeval.htm?dl=1"/>
-
 # Tool
 
 The ACO-Solver tool has the following requirements:
