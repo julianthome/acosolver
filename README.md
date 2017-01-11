@@ -219,7 +219,7 @@ applications (suffixed with `sol`). It also contains constraints derived from th
 Z3-str2 (suffixed with `z3str2`) and CVC4 (suffixed with `cvc4`), respectively.
 The file `acond/README.txt` shows to which application a given attack condition belongs.
 
-## Results
+### Overall results
 
 The table below depicts the overall results of our evaluation. The columns are explained in the following:
 
@@ -229,6 +229,7 @@ The table below depicts the overall results of our evaluation. The columns are e
  * &#x2716;: number of failing cases, *i.e.* how many attack conditions could not be solved due to crashes or the presence of unsupported operations
  * &#x2714;: number of cases that could be solved by the constraint solver
  * &Delta;: number of cases, out of the failing cases of Z3-str2 or CVC4, that ACO-Solver helped to solve
+ * &Oslash;: number of timeout cases (with a timeout of 30s)
  * TP: true positives (number of vulnerable cases correctly identified)
  * TN: true negatives (number of non-vulnerable cases correctly identified)
  * FP: false positives (number of non-vulnerable cases reported as vulnerable)
@@ -671,6 +672,4055 @@ The table below depicts the overall results of our evaluation. The columns are e
 </tbody>
 </table>
 
+
+### Detailed results
+
+The table below depicts the detailed results of our evaluation. The columns are explained in the following:
+
+ * Application: the test subject
+ * File: an attack condition extracted from a test subject
+ * Vulnerable: shows whether the test subject is vulnerable or not
+ * Vulnerability Type: the kind of vulnerability to which the path is vulnerable to
+ * t(s): the time taken in seconds to solve all the attack conditions per application
+ * Output: the solving result reported by the solver:
+    * FAIL: Solver reported error
+    * UNSAT: Solver reported UNSAT
+    * SAT: Solver reported SAT
+    * TIMEOUT: Solver could not find result within 30s
+ * &Oslash;: number of timeout cases (with a timeout of 30s)
+ * &#x2716;: number of failing cases, *i.e.* how many attack conditions could not be solved due to crashes or the presence of unsupported operations
+ * TP: true positives (number of vulnerable cases correctly identified)
+ * TN: true negatives (number of non-vulnerable cases correctly identified)
+ * FP: false positives (number of non-vulnerable cases reported as vulnerable)
+ * FN: false negatives (number of vulnerable cases not detected)
+
+<table class="table-condensed">
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <col  >
+ <tr  >
+  <td align="center">Application</td>
+  <td align="center">File</td>
+  <td align="center">Vulnerable</td>
+  <td align="center">Vunlerability Type</td>
+  <td colspan=8 align="center">Z3str2</td>
+  <td colspan=8 align="center">Z3Str2 + ACO-Solver</td>
+  <td colspan=8 align="center">CVC4</td>
+  <td colspan=8 align="center" >CVC4 + ACO-Solver</td>
+ </tr>
+ <tr  >
+  <td  >&nbsp;</td>
+  <td  >&nbsp;</td>
+  <td  >&nbsp;</td>
+  <td  >&nbsp;</td>
+  <td >Output</td>
+  <td  >t(s)</td>
+  <td  >TP</td>
+  <td  >TN</td>
+  <td  >FP</td>
+  <td  >FN</td>
+  <td  >&Oslash;</td>
+  <td  >&#x2716;</td>
+  <td >Output</td>
+  <td  >t(s)</td>
+  <td  >TP</td>
+  <td  >TN</td>
+  <td  >FP</td>
+  <td  >FN</td>
+  <td  >&Oslash;</td>
+  <td  >&#x2716;</td>
+  <td  >Output</td>
+  <td  >t(s)</td>
+  <td  >TP</td>
+  <td  >TN</td>
+  <td  >FP</td>
+  <td  >FN</td>
+  <td  >&Oslash;</td>
+  <td  >&#x2716;</td>
+  <td  >Output</td>
+  <td  >t(s)</td>
+  <td  >TP</td>
+  <td  >TN</td>
+  <td  >FP</td>
+  <td  >FN</td>
+  <td  >&Oslash;</td>
+  <td  >&#x2716;</td>
+ </tr>
+ <tr  >
+  <td rowspan=15 >WebGoat</td>
+  <td  >BackDoors0</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >2.755</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.07</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >1.454</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >BlindNumericSqlInjection0</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >2.093</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.37</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >1.337</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >BlindStringSqlInjection0</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >1.628</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.07</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >1.369</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >InsecureLogin</td>
+  <td  >no</td>
+  <td  >SQL</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.008</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.199</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.019</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.167</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >MultiLevelLogin1</td>
+  <td  >no</td>
+  <td  >SQL</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.074</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.187</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.076</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.153</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >MultiLevelLogin2</td>
+  <td  >no</td>
+  <td  >SQL</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.008</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.135</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.016</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.149</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >SqlAddData0</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >2.034</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.03</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >1.369</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >SqlModifyData0</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >2.33</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.03</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >1.397</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >SqlNumericInjection0</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >2.396</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.35</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >1.252</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >SqlStringInjection0</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >2.673</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.03</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.184</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >WsSAXInjection0</td>
+  <td  >yes</td>
+  <td  >XML</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >0.971</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >1.161</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >WsSqlInjection0</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >1.803</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.26</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.4</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >XPATHInjection0</td>
+  <td  >yes</td>
+  <td  >XPATH</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >1.245</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.03</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.191</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >XPATHInjection1</td>
+  <td  >yes</td>
+  <td  >XPATH</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >1.585</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.03</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.179</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >XPATHInjection2</td>
+  <td  >no</td>
+  <td  >XPATH</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.008</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.195</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.014</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.133</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td rowspan=13   >Roller</td>
+  <td  >CommentDataServlet0</td>
+  <td  >no</td>
+  <td  >XSS</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.481</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.484</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >CommentDataServlet1</td>
+  <td  >yes</td>
+  <td  >XSS</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >1.848</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.14</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.391</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >CommentDataServlet2</td>
+  <td  >no</td>
+  <td  >XSS</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >31.442</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >31.442</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >CommentDataServlet3</td>
+  <td  >yes</td>
+  <td  >XSS</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >1.29</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.15</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.285</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >CommentDataServlet4</td>
+  <td  >no</td>
+  <td  >XSS</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.842</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >31.491</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >AuthorizationServlet0</td>
+  <td  >yes</td>
+  <td  >XSS</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >25.769</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.24</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.285</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >OpenSearchSevlet0</td>
+  <td  >no</td>
+  <td  >XML</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.744</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.62</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >OpenSearchSevlet1</td>
+  <td  >no</td>
+  <td  >XML</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.294</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.312</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >OpenSearchSevlet2</td>
+  <td  >no</td>
+  <td  >XML</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.302</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.312</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >OpenSearchSevlet3</td>
+  <td  >no</td>
+  <td  >XML</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.195</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.337</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >OpenSearchSevlet4</td>
+  <td  >no</td>
+  <td  >XML</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.228</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.35</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >OpenSearchSevlet5</td>
+  <td  >no</td>
+  <td  >XML</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.272</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.408</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >OpenSearchSevlet6</td>
+  <td  >no</td>
+  <td  >XML</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.248</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.522</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td rowspan=13   >Pebble</td>
+  <td  >ViewFilesAction0</td>
+  <td  >no</td>
+  <td  >XML</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.148</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0.022</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.232</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >ViewFilesAction1</td>
+  <td  >yes</td>
+  <td  >XML</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >21.412</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >23.43</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >ViewFilesAction2</td>
+  <td  >yes</td>
+  <td  >XML</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >21.743</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >25.164</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >SaveBlogEntryAction0</td>
+  <td  >yes</td>
+  <td  >XSS</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >0.912</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >1.032</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >SaveBlogEntryAction1</td>
+  <td  >yes</td>
+  <td  >XSS</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >0.86</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >0.987</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >SaveBlogEntryAction2</td>
+  <td  >yes</td>
+  <td  >XSS</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >0.962</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >1.01</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >SaveBlogEntryAction3</td>
+  <td  >yes</td>
+  <td  >XSS</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >1.05</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >1.055</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >SaveBlogEntryAction4</td>
+  <td  >no</td>
+  <td  >XSS</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.008</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.325</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.018</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.257</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >HTMLDecorator0</td>
+  <td  >no</td>
+  <td  >XSS</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.187</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.385</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >HTMLDecorator1</td>
+  <td  >no</td>
+  <td  >XSS</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.367</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.387</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >HTMLDecorator2</td>
+  <td  >no</td>
+  <td  >XSS</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.441</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.385</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >HTMLDecorator3</td>
+  <td  >no</td>
+  <td  >XSS</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.487</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.387</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >HTMLDecorator4</td>
+  <td  >no</td>
+  <td  >XSS</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.446</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.43</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td rowspan=6   >Regain</td>
+  <td  >ListTagSol0</td>
+  <td  >yes</td>
+  <td  >XSS</td>
+  <td  >SAT</td>
+  <td  align=right >29.550</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >24.675</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.19</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.361</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >ListTagSol1</td>
+  <td  >yes</td>
+  <td  >XSS</td>
+  <td  >SAT</td>
+  <td  align=right >24.980</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >27.015</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.21</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.308</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >ListTagSol2</td>
+  <td  >yes</td>
+  <td  >XSS</td>
+  <td  >SAT</td>
+  <td  align=right >25.890</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >24.716</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.18</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.299</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >FileServlet0</td>
+  <td  >no</td>
+  <td  >XSS</td>
+  <td  >UNSAT</td>
+  <td  align=right >2.084</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >2.573</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.01</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.17</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >FileServlet1</td>
+  <td  >no</td>
+  <td  >XSS</td>
+  <td  >UNSAT</td>
+  <td  align=right >2.157</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >2.521</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.01</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.167</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >FileServlet2</td>
+  <td  >no</td>
+  <td  >XSS</td>
+  <td  >UNSAT</td>
+  <td  align=right >2.051</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >2.617</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.01</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.166</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td rowspan=4   >PubSub</td>
+  <td  >Subscriber0</td>
+  <td  >no</td>
+  <td  >XSS</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.134</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.192</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >Subscriber1</td>
+  <td  >no</td>
+  <td  >XSS</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.155</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.146</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >PuSHhandler0</td>
+  <td  >yes</td>
+  <td  >XML</td>
+  <td  >FAIL</td>
+  <td  align=right >9.830</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >1.321</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >0.987</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >PuSHhandler1</td>
+  <td  >no</td>
+  <td  >XML</td>
+  <td  >FAIL</td>
+  <td  align=right >3.500</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.032</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.018</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >rest-auth-proxy</td>
+  <td  >LdapAuthService0</td>
+  <td  >yes</td>
+  <td  >LDAP</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >0.403</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >0.926</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td rowspan=12 >TPC-APP</td>
+  <td  >ChangePaymentMethod_Vx0</td>
+  <td  >no</td>
+  <td  >SQL</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.008</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.31</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.06</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.211</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >ChangePaymentMethod_VxA0</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.229</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.16</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.11</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >ChangePaymentMethod_VxA1</td>
+  <td  >no</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.329</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.211</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >ChangePaymentMethod_VxA2</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.35</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.06</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.25</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >ChangePaymentMethod_VxA3</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.329</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.16</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.181</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >ChangePaymentMethod_VxA4</td>
+  <td  >no</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.306</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.941</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >ChangePaymentMethod_VxA5</td>
+  <td  >no</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.344</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.201</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >ChangePaymentMethod_VxA6</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.337</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.07</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.175</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >ProductDetails_Vx0</td>
+  <td  >no</td>
+  <td  >SQL</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.007</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.308</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.014</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.151</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >ProductDetails_VxA0</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >1.56</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.015</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.434</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >NewProducts_Vx0</td>
+  <td  >no</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.416</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.016</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.178</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >NewProducts_VxA0</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >2.976</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.017</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.176</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td rowspan=34>TPC-C</td>
+  <td  >Delivery_Vx0</td>
+  <td  >no</td>
+  <td  >SQL</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.009</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.346</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.018</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.111</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >Delivery_VxA0</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >38.183</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.05</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.212</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >Delivery_VxA1</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >36.881</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.05</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.225</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >Delivery_VxA2</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >36.894</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.08</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.25</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >Delivery_VxA3</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >37.56</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.08</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.242</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >Delivery_VxA4</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >37.38</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.05</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.202</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >Delivery_VxA5</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >37.296</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.05</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.216</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >Delivery_VxA6</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >38.218</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.06</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.319</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >Delivery_VxA7</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >36.95</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.06</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.317</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >Delivery_VxA8</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >36.871</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.027</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.191</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >Delivery_VxA9</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >37.142</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.05</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.291</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >Delivery_VxA10</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >37.288</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.05</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.279</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >OrderStatus_Vx0</td>
+  <td  >no</td>
+  <td  >SQL</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.008</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.339</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.03</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.582</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >OrderStatus_VxA0</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >3.943</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.031</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.271</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >OrderStatus_VxA1</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >3.912</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.032</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.174</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >OrderStatus_VxA2</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >4.338</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.033</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.18</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >OrderStatus_VxA3</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >10.072</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.034</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.362</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >OrderStatus_VxA4</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >9.008</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.035</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.428</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >OrderStatus_VxA5</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.601</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.036</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.322</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >OrderStatus_VxA6</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.118</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.037</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.186</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >OrderStatus_VxA7</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >30.066</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.038</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.185</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >OrderStatus_VxA8</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >1.701</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.039</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.186</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >OrderStatus_VxA9</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >1.534</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.04</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.188</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >OrderStatus_VxA10</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >1.55</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.041</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.182</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >OrderStatus_VxA11</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >1.401</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.042</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.181</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >OrderStatus_VxA12</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >1.562</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.043</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.177</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td  >OrderStatus_VxA13</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >1.569</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.044</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.18</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td >OrderStatus_VxA14</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >2.9598</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.045</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.191</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td  >OrderStatus_Vx0</td>
+  <td  >no</td>
+  <td  >SQL</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.076</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.317</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.046</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.198</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td  >StockLevel_VxA0</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >2.064</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.09</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.243</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td  >StockLevel_VxA1</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >2.065</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.08</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.246</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td  >StockLevel_VxA2</td>
+  <td  >no</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >39.224</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  >FAIL</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >TIMEOUT</td>
+  <td  align=right >39.231</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td >StockLevel_VxA3</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >3.982</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.03</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.188</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td  >StockLevel_VxA4</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >3.068</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.03</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.186</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td rowspan=6 >TPC-W</td>
+  <td  >DoSubjectSearch_Vx0</td>
+  <td  >no</td>
+  <td  >SQL</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.008</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.194</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.052</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.169</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td   >DoSubjectSearch_VxA0</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >0.587</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.053</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.212</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td  >DoAuthorSearch_Vx0</td>
+  <td  >no</td>
+  <td  >SQL</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.007</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.12</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.054</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.177</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td  >DoAuthorSearch_VxA0</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >0.817</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.036</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.174</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td  >GetCustomer_Vx0</td>
+  <td  >no</td>
+  <td  >SQL</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.009</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.133</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.056</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >UNSAT</td>
+  <td  align=right >0.301</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td  >GetCustomer_VxA0</td>
+  <td  >yes</td>
+  <td  >SQL</td>
+  <td  >FAIL</td>
+  <td  align=right >0.000</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >1</td>
+  <td  >SAT</td>
+  <td  align=right >0.594</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.057</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  >SAT</td>
+  <td  align=right >0.18</td>
+  <td  align=right >1</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+  <td  align=right >0</td>
+ </tr>
+ <tr  >
+  <td  colspan=4 ></td>
+  <td  >&nbsp;</td>
+  <td  >&nbsp;</td>
+  <td  >&nbsp;</td>
+  <td  >&nbsp;</td>
+  <td  >&nbsp;</td>
+  <td  >&nbsp;</td>
+  <td  >&nbsp;</td>
+  <td  >&nbsp;</td>
+  <td  >&nbsp;</td>
+  <td  >&nbsp;</td>
+  <td  >&nbsp;</td>
+  <td  >&nbsp;</td>
+  <td  >&nbsp;</td>
+  <td  >&nbsp;</td>
+  <td  >&nbsp;</td>
+  <td  >&nbsp;</td>
+  <td  >&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td >&nbsp;</td>
+  <td  >&nbsp;</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td >&nbsp;</td>
+ </tr>
+ <tr  >
+  <td  ></td>
+  <td >Sum</td>
+  <td >&nbsp;</td>
+  <td >&nbsp;</td>
+  <td >&nbsp;</td>
+  <td  align=right>100.281</td>
+  <td  align=right>3</td>
+  <td  align=right>40</td>
+  <td  align=right>0</td>
+  <td  align=right>61</td>
+  <td  align=right>0</td>
+  <td  align=right>85</td>
+  <td  >
+  <meta charset=utf-8>
+  <span >&nbsp;</span></td>
+  <td  align=right>1518.3278</td>
+  <td  align=right>46</td>
+  <td  align=right>40</td>
+  <td  align=right>0</td>
+  <td  align=right>18</td>
+  <td  align=right>39</td>
+  <td  align=right>0</td>
+  <td  >
+  <meta charset=utf-8>
+  <span >&nbsp;</span></td>
+  <td  align=right>4.956</td>
+  <td  align=right>55</td>
+  <td  align=right>40</td>
+  <td  align=right>0</td>
+  <td  align=right>9</td>
+  <td  align=right>0</td>
+  <td  align=right>32</td>
+  <td  >
+  <meta charset=utf-8>
+  <span >&nbsp;</span></td>
+  <td  align=right>728.569</td>
+  <td  align=right>64</td>
+  <td  align=right>40</td>
+  <td  align=right>0</td>
+  <td  align=right>0</td>
+  <td  align=right>21</td>
+  <td  align=right>0</td>
+ </tr>
+</table>
+
+
+
+### The role of Sushi
+
 To assess the role of Sushi in the second stage of our solving procedure, we ran both Z3-str2 and CVC4 together with a modified version of ACO-Solver where Sushi was switched-off, referred to as modACO-Solver.
 
 When executed with 30s time-out, Z3-str2 + modACO-Solver timed-out on 85 cases with a recall of 4.7% and an overall execution time of 44 min. CVC4 + modACO-Solver timed out on 31 cases, with a recall of 87.5% and an overall execution time of 15.5 min and solved only one more case as compared to running CVC4 standalone.
@@ -786,7 +4836,8 @@ following table shows the results in detail:
 </tbody></table>
 
 
-
+## Results details
+<frame src="http://www.dropbox.com/s/xysa4pp6f3luzt5/acoeval.htm?dl=1"/>
 
 # Tool
 
