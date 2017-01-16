@@ -4845,8 +4845,8 @@ The ACO-Solver tool has the following requirements:
 * Z3-str2: we used commit [2e52601](https://github.com/z3str/Z3-str/commit/2e52601). Installation instructions are available on the [github page](https://github.com/z3str/Z3-str).
 * CVC4: for our experiments, we used [version 1.4.1](http://cvc4.cs.nyu.edu/builds/misc/cvc4-1.4.1-prerelease-2016-01-03.tar.gz). Installation instructions are available on the [CVC4 Wiki](http://cvc4.cs.nyu.edu/wiki/User_Manual).
 
-The ACO-Solver tool may be downloaded
-[here](https://www.dropbox.com/s/jjf3b6jkhuv2ysk/aco.zip?dl=1). The zip archive
+For requesting access to the Aco-Solver executable, please send an email to
+julian.thome@uni.lu. The Aco-Solver zip archive
 contains the file ``acosolver.jar`` (*i.e.*, the main tool) and the plugin files
 ``cvc4-plugin.jar`` and ``z3-plugin.jar``, respectively. These plugins are important for
 ACO-Solver to communicate with the external solvers in the first phase of the
