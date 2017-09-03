@@ -18,7 +18,7 @@ ACO-Solver is a tool for search-driven constraint solving for the purpose of
 vulnerability analysis. The figure below illustrates how ACO-Solver works:
 
 
-![](https://www.dropbox.com/s/t5cbpndjorpweow/archfigure.png?dl=1)
+![](img/archfigure.png)
 
 The solver takes as input an attack condition, *i.e*. a path condition conjoined with an
 attack specification used to characterize a security threat
